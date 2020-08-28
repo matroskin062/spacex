@@ -1,0 +1,32 @@
+.Header {
+  display: flex;
+  height: 50px;
+  align-items: flex-end;
+  margin-bottom: 20px;
+}
+
+.Header img {
+  width: 200px;
+}
+
+.Header ul {
+  display: flex;
+}
+
+.Header li {
+  text-align: center;
+  font-size: 18px;
+  color: white;
+}
+
+.Header ul > a {
+  text-align: center;
+  padding: 0px 15px;
+  border-bottom: 2px solid transparent;
+  transition: 0.2s;
+  margin-left: 20px;
+}
+
+.Header ul > a:hover {
+  border-bottom: 2px solid #fff;
+}

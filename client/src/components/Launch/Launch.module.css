@@ -1,0 +1,47 @@
+.Launch {
+  margin: 0 auto;
+  max-width: 960px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 4px 4px 18px rgba(0, 0, 0, 0.25);
+  padding: 20px;
+  margin-bottom: 20px;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.Launch h2 {
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+.Launch p {
+  font-size: 24px;
+  line-height: 30px;
+  padding: 5px 0;
+}
+
+.Launch img {
+  width: 140px;
+}
+
+.Flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.Launch a {
+  font-size: 24px;
+  line-height: 30px;
+  color: #2400ff;
+  transition: 0.2s;
+}
+
+.Launch a:hover {
+  color: #437fff;
+}
