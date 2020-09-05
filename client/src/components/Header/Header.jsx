@@ -16,6 +16,9 @@ const Header = () => {
         <Link to='/rockets'>
           <li>Rockets</li>
         </Link>
+        <Link to='/launches'>
+          <li>Launches</li>
+        </Link>
       </ul>
     </div>
   );

@@ -45,3 +45,9 @@
 .Launch a:hover {
   color: #437fff;
 }
+
+@media (max-width: 576px) {
+  .Launch img {
+    display: none;
+  }
+}

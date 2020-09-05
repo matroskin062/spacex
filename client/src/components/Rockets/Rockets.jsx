@@ -3,7 +3,6 @@ import { getAllRockets } from './Query';
 import { useQuery } from '@apollo/client';
 import s from './Rockets.module.css';
 import Preloader from '../Preloader/Preloader';
-import Carousel from '../Carousel/MyCarousel';
 
 const Rockets = () => {
   const { data, loading } = useQuery(getAllRockets);

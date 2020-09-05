@@ -8,6 +8,7 @@ const {
   GraphQLList,
   GraphQLInt,
   GraphQLFloat,
+  GraphQLBoolean,
 } = graphql;
 
 const Rocket = new GraphQLObjectType({
@@ -33,19 +34,21 @@ const Rocket = new GraphQLObjectType({
   }),
 });
 
-const UpcomingLaunches = new GraphQLObjectType({
-  name: 'UpcomingLaunches',
+const Launches = new GraphQLObjectType({
+  name: 'Launches',
   fields: () => ({
     flight_number: { type: GraphQLInt },
     mission_name: { type: GraphQLString },
     rocket: { type: Rocket },
     launch_date_utc: { type: GraphQLString },
     details: { type: GraphQLString },
+    launch_success: { type: GraphQLBoolean },
     links: {
       type: new GraphQLObjectType({
         name: 'Links',
         fields: () => ({
           mission_patch: { type: GraphQLString },
+          video_link: { type: GraphQLString },
         }),
       }),
     },
@@ -64,7 +67,7 @@ const SecondStage = new GraphQLObjectType({
             payload_type: { type: GraphQLString },
             payload_id: { type: GraphQLString },
             manufacturer: { type: GraphQLString },
-            payload_mass_kg: { type: GraphQLInt },
+            payload_mass_kg: { type: GraphQLFloat },
           }),
         })
       ),
@@ -85,7 +88,7 @@ const Query = new GraphQLObjectType({
       },
     },
     getUpcomingLaunches: {
-      type: new GraphQLList(UpcomingLaunches),
+      type: new GraphQLList(Launches),
       args: { limit: { type: GraphQLInt }, offset: { type: GraphQLInt } },
       resolve(parent, args) {
         return axios
@@ -96,11 +99,19 @@ const Query = new GraphQLObjectType({
       },
     },
     getLaunch: {
-      type: UpcomingLaunches,
+      type: Launches,
       args: { id: { type: GraphQLInt } },
       resolve(parent, args) {
         return axios
           .get('https://api.spacexdata.com/v3/launches/' + args.id)
+          .then(({ data }) => data);
+      },
+    },
+    getAllLaunches: {
+      type: new GraphQLList(Launches),
+      resolve() {
+        return axios
+          .get('https://api.spacexdata.com/v3/launches/')
           .then(({ data }) => data);
       },
     },
