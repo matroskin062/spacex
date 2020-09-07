@@ -4,7 +4,7 @@ import s from './Preloader.module.css';
 
 const Preloader = () => {
   return (
-    <div class={s.Preloader}>
+    <div className={s.Preloader}>
       <img src={rocketImg} alt='preloader' />
     </div>
   );

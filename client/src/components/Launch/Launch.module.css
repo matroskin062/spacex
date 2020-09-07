@@ -51,3 +51,16 @@
     display: none;
   }
 }
+
+@media (max-width: 768px) {
+  .Launch h2 {
+    font-size: 24px;
+  }
+
+  .Launch p {
+    font-size: 18px;
+  }
+  .Launch a {
+    font-size: 18px;
+  }
+}
