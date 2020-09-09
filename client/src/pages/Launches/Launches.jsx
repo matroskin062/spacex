@@ -6,8 +6,13 @@ import { getLaunches } from './Query';
 
 const Launches = () => {
   const { data, loading } = useQuery(getLaunches);
+
   if (loading && !data) return <Preloader />;
-  return <LaunchesList data={data.getAllLaunches} />;
+  return (
+    <div>
+      <LaunchesList data={data.getAllLaunches} />
+    </div>
+  );
 };
 
 export default Launches;

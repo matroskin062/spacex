@@ -5,6 +5,8 @@ export const getLaunchQ = gql`
     getLaunch(id: $id) {
       mission_name
       launch_date_utc
+      is_tentative
+      tentative_max_precision
       links {
         mission_patch
       }

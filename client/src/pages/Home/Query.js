@@ -1,11 +1,13 @@
 import { gql } from 'apollo-boost';
 
 export const GetUpcomingLaunches = gql`
-  query getUpcomingLaunches($limit: Int, $offset: Int) {
-    getUpcomingLaunches(limit: $limit, offset: $offset) {
+  query getUpcomingLaunches {
+    getUpcomingLaunches {
       flight_number
       mission_name
       launch_date_utc
+      is_tentative
+      tentative_max_precision
       links {
         mission_patch
       }

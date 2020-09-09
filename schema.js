@@ -43,6 +43,8 @@ const Launches = new GraphQLObjectType({
     launch_date_utc: { type: GraphQLString },
     details: { type: GraphQLString },
     launch_success: { type: GraphQLBoolean },
+    is_tentative: { type: GraphQLBoolean },
+    tentative_max_precision: { type: GraphQLString },
     links: {
       type: new GraphQLObjectType({
         name: 'Links',
@@ -89,12 +91,9 @@ const Query = new GraphQLObjectType({
     },
     getUpcomingLaunches: {
       type: new GraphQLList(Launches),
-      args: { limit: { type: GraphQLInt }, offset: { type: GraphQLInt } },
       resolve(parent, args) {
         return axios
-          .get(
-            `https://api.spacexdata.com/v3/launches/upcoming?limit=${args.limit}&offset=${args.offset}`
-          )
+          .get(`https://api.spacexdata.com/v3/launches/upcoming`)
           .then(({ data }) => data);
       },
     },
@@ -109,9 +108,12 @@ const Query = new GraphQLObjectType({
     },
     getAllLaunches: {
       type: new GraphQLList(Launches),
-      resolve() {
+      args: { limit: { type: GraphQLInt }, offset: { type: GraphQLInt } },
+      resolve(parent, args) {
         return axios
-          .get('https://api.spacexdata.com/v3/launches/')
+          .get(
+            `https://api.spacexdata.com/v3/launches?limit=${args.limit}&offset=${args.offset}`
+          )
           .then(({ data }) => data);
       },
     },
