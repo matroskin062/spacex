@@ -77,6 +77,20 @@ const SecondStage = new GraphQLObjectType({
   }),
 });
 
+// const Headers = new GraphQLObjectType({
+//   name: 'Headers',
+//   fields: () => ({
+//     count: {
+//       type: GraphQLString,
+//       resolve: (headers) => {
+//         headers['server'];
+//       },
+//     },
+//   }),
+// });
+
+const Headers = GraphQLInt;
+
 const Query = new GraphQLObjectType({
   name: 'Query',
   fields: {
@@ -115,6 +129,14 @@ const Query = new GraphQLObjectType({
             `https://api.spacexdata.com/v3/launches?limit=${args.limit}&offset=${args.offset}`
           )
           .then(({ data }) => data);
+      },
+    },
+    getHeaders: {
+      type: Headers,
+      resolve() {
+        return axios
+          .get('https://api.spacexdata.com/v3/launches/')
+          .then((res) => res.headers['spacex-api-count']);
       },
     },
   },
