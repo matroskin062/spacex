@@ -89,7 +89,7 @@ const SecondStage = new GraphQLObjectType({
 //   }),
 // });
 
-const Headers = GraphQLInt;
+const totalCount = GraphQLInt;
 
 const Query = new GraphQLObjectType({
   name: 'Query',
@@ -131,8 +131,8 @@ const Query = new GraphQLObjectType({
           .then(({ data }) => data);
       },
     },
-    getHeaders: {
-      type: Headers,
+    totalCount: {
+      type: totalCount,
       resolve() {
         return axios
           .get('https://api.spacexdata.com/v3/launches/')
