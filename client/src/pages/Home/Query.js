@@ -8,6 +8,8 @@ export const GetUpcomingLaunches = gql`
       launch_date_utc
       is_tentative
       tentative_max_precision
+      launch_success
+      upcoming
       links {
         mission_patch
       }

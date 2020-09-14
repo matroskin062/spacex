@@ -64,3 +64,11 @@
     font-size: 18px;
   }
 }
+
+.Launch .Succces {
+  color: #4cbb17;
+}
+
+.Launch .Fail {
+  color: #ff6347;
+}

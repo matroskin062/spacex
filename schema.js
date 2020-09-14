@@ -45,6 +45,7 @@ const Launches = new GraphQLObjectType({
     launch_success: { type: GraphQLBoolean },
     is_tentative: { type: GraphQLBoolean },
     tentative_max_precision: { type: GraphQLString },
+    upcoming: { type: GraphQLBoolean },
     links: {
       type: new GraphQLObjectType({
         name: 'Links',

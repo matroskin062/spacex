@@ -8,7 +8,9 @@ const Launch = ({ l }) => {
   const { payloads } = l.rocket.second_stage;
   return (
     <div key={l.mission_name} className={s.Launch}>
-      <h2>{l.mission_name}</h2>
+      <h2 className={l.upcoming ? null : l.launch_success ? s.Succces : s.Fail}>
+        {l.mission_name}
+      </h2>
       <div className={s.Flex}>
         <div>
           <p>

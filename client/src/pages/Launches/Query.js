@@ -5,6 +5,8 @@ export const getLaunches = gql`
     getAllLaunches(limit: $limit, offset: $offset) {
       mission_name
       flight_number
+      launch_success
+      upcoming
       rocket {
         rocket_id
         rocket_name
