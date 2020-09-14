@@ -25,6 +25,12 @@ const Launches = () => {
 
   return (
     <div>
+      {loading && !data ? (
+        <Preloader />
+      ) : (
+        <LaunchesList data={data.getAllLaunches} />
+      )}
+     
       <Pagination
         pageCount={Math.ceil(total / 10)}
         pageRangeDisplayed={2}
@@ -42,12 +48,6 @@ const Launches = () => {
         nextLinkClassName={'page-link'}
         onPageChange={pageChange}
       />
-
-      {loading && !data ? (
-        <Preloader />
-      ) : (
-        <LaunchesList data={data.getAllLaunches} />
-      )}
     </div>
   );
 };
