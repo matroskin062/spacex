@@ -78,18 +78,6 @@ const SecondStage = new GraphQLObjectType({
   }),
 });
 
-// const Headers = new GraphQLObjectType({
-//   name: 'Headers',
-//   fields: () => ({
-//     count: {
-//       type: GraphQLString,
-//       resolve: (headers) => {
-//         headers['server'];
-//       },
-//     },
-//   }),
-// });
-
 const totalCount = GraphQLInt;
 
 const Query = new GraphQLObjectType({
