@@ -13,6 +13,10 @@
   display: flex;
 }
 
+.Logo {
+  padding: 8px 20px;
+}
+
 .Header li {
   text-align: center;
   font-size: 18px;
