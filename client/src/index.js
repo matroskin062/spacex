@@ -7,7 +7,7 @@ import { BrowserRouter } from 'react-router-dom';
 import Preloader from './components/Preloader/Preloader';
 
 const client = new ApolloClient({
-  uri: 'http://localhost:3001/graphiql',
+  uri: '/graphiql',
   cache: new InMemoryCache(),
 });
 
@@ -23,4 +23,3 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById('root')
 );
-
