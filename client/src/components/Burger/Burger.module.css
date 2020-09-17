@@ -1,43 +1,14 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-@font-face {
-  font-family: 'FiraCode';
-  src: url('assets/fonts/FiraCode-Regular.woff') format('woff');
-}
-body {
-  margin: 0;
-  font-family: 'FiraCode', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background-color: #282828;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
-
-ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-a {
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: none;
+.BurgerMenu {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: none;
 }
 
 /* Individual item */
 .bm-item {
   display: inline-block;
-
+  outline: none;
   /* Our sidebar item styling */
   text-decoration: none;
   margin-bottom: 10px;
@@ -58,10 +29,18 @@ a:hover {
   right: 20px;
   position: fixed;
   width: 36px;
-  height: 30px;
+  height: 10px;
   top: 15px;
 }
 
+.Active {
+  color: white;
+  border-bottom: 1px solid white;
+}
+
+.hidden {
+  display: none;
+}
 /* Color/shape of burger icon bars */
 .bm-burger-bars {
   background: white;
@@ -74,6 +53,9 @@ a:hover {
 }
 
 /* Color/shape of close button cross */
+.bm-cross {
+  background: black;
+}
 
 /* General sidebar styles */
 .bm-menu {
@@ -95,4 +77,11 @@ a:hover {
 /* Styling of overlay */
 .bm-overlay {
   background: rgba(0, 0, 0, 0.3);
+}
+
+
+@media screen and (max-width: 767px) {
+  .BurgerMenu {
+    display: block;
+  }
 }

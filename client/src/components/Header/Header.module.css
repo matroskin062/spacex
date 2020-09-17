@@ -34,3 +34,14 @@
 .Header ul > a:hover {
   border-bottom: 2px solid #fff;
 }
+
+
+@media screen and (max-width: 767px) {
+  .Header > ul {
+    display: none;
+  }
+
+  .BurgerMenu {
+    display: block;
+  }
+}

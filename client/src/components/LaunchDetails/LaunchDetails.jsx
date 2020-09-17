@@ -6,7 +6,7 @@ import { useParams } from 'react-router-dom';
 import s from './LaunchDetails.module.css';
 import NoImage from '../../assets/no-image.png';
 import Preloader from '../Preloader/Preloader';
-import moment from 'moment'
+import moment from 'moment';
 
 const LaunchDetails = () => {
   const { flight } = useParams();
@@ -16,7 +16,7 @@ const LaunchDetails = () => {
   const l = data && data.getLaunch;
   if (loading && !data) return <Preloader />;
   return (
-    <div class={s.LaunchDetails}>
+    <div className={s.LaunchDetails}>
       <h1>{l.mission_name}</h1>
       <div className={s.Flex}>
         <div>
@@ -35,7 +35,7 @@ const LaunchDetails = () => {
                 {p.payload_id} {p.payload_type}
                 {p.manufacturer && ' by ' + p.manufacturer}{' '}
               </p>
-              <p>
+              <p key={p.payload_id + p.manufacturer}>
                 {p.payload_mass_kg &&
                   'Payload Mass: ' + p.payload_mass_kg + 'kg'}
               </p>
