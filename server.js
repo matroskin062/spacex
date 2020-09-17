@@ -8,7 +8,7 @@ const path = require('path');
 const PORT = process.env.PORT || 3001;
 app.use(cors());
 
-app.use('/', graphqlHTTP({ schema, graphiql: true }));
+app.use('/graphiql', graphqlHTTP({ schema, graphiql: true }));
 
 app.use(express.static('client/build'));
 
