@@ -7,7 +7,7 @@ import { BrowserRouter } from 'react-router-dom';
 import Preloader from './components/Preloader/Preloader';
 
 const client = new ApolloClient({
-  uri: 'http://localhost:3001/',
+  uri: 'http://localhost:3001/graphiql',
   cache: new InMemoryCache(),
 });
 
