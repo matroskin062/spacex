@@ -3,6 +3,7 @@
   height: 50px;
   align-items: flex-end;
   margin-bottom: 40px;
+  position: relative;
 }
 
 .Header img {

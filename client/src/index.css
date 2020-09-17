@@ -54,11 +54,10 @@ a:hover {
 
 /* Position and sizing of burger button */
 .bm-burger-button {
-  position: fixed;
-  right: 20px;
-  position: fixed;
+  position: absolute;
   width: 36px;
   height: 30px;
+  right: 35px;
   top: 15px;
 }
 
@@ -95,4 +94,10 @@ a:hover {
 /* Styling of overlay */
 .bm-overlay {
   background: rgba(0, 0, 0, 0.3);
+  top: 0;
+}
+
+.bm-menu-wrap {
+  left: 0;
+  top: 0;
 }

@@ -1,7 +1,4 @@
 .BurgerMenu {
-  position: absolute;
-  left: 0;
-  top: 0;
   display: none;
 }
 
@@ -24,14 +21,6 @@
 /* The rest copied directly from react-burger-menu docs */
 
 /* Position and sizing of burger button */
-.bm-burger-button {
-  position: fixed;
-  right: 20px;
-  position: fixed;
-  width: 36px;
-  height: 10px;
-  top: 15px;
-}
 
 .Active {
   color: white;
@@ -78,7 +67,6 @@
 .bm-overlay {
   background: rgba(0, 0, 0, 0.3);
 }
-
 
 @media screen and (max-width: 767px) {
   .BurgerMenu {
