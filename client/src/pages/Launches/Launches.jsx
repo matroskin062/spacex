@@ -5,7 +5,9 @@ import Preloader from '../../components/Preloader/Preloader';
 import { getLaunches } from './Query';
 import Pagination from 'react-paginate';
 const Launches = () => {
-  const [offset, setOffset] = React.useState(0);
+  const [offset, setOffset] = React.useState(
+    +sessionStorage.getItem('offset') || 0
+  );
   const [total, setTotal] = React.useState(1);
   const { data, loading } = useQuery(getLaunches, {
     variables: {
@@ -19,8 +21,8 @@ const Launches = () => {
 
   const pageChange = (data) => {
     let selected = data.selected;
+    sessionStorage.setItem('page', data.selected);
     setOffset(Math.ceil(selected * 10));
-    console.log(selected);
   };
 
   return (
@@ -30,7 +32,7 @@ const Launches = () => {
       ) : (
         <LaunchesList data={data.getAllLaunches} />
       )}
-     
+
       <Pagination
         pageCount={Math.ceil(total / 10)}
         pageRangeDisplayed={2}
@@ -47,6 +49,7 @@ const Launches = () => {
         previousLinkClassName={'page-link'}
         nextLinkClassName={'page-link'}
         onPageChange={pageChange}
+        initialPage={+sessionStorage.getItem('page') || 0}
       />
     </div>
   );

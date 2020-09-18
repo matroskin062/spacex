@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, useRouteMatch } from 'react-router-dom';
 import './App.css';
 import Home from './pages/Home/Home';
 import Header from './components/Header/Header';
@@ -10,16 +10,22 @@ const LaunchDetails = React.lazy(() =>
 );
 
 function App() {
+  const launchesRoute = useRouteMatch('/launches');
+  const missionRoute = useRouteMatch('/mission/:flight');
+  if (!launchesRoute && !missionRoute) {
+    sessionStorage.clear();
+  }
+  
   return (
     <div className='App'>
       <Header />
-        <Switch>
-          <Route path='/rockets' component={Rockets} />
-          <Route path='/mission/:flight' component={LaunchDetails} />
-          <Route path='/launches' component={Launches} />
-          <Route exact path='/' component={Home} />
-          <Route render={() => <h1>Not Found</h1>} />
-        </Switch>
+      <Switch>
+        <Route path='/rockets' component={Rockets} />
+        <Route path='/mission/:flight' component={LaunchDetails} />
+        <Route path='/launches' component={() => <Launches />} />
+        <Route exact path='/' component={Home} />
+        <Route render={() => <h1>Not Found</h1>} />
+      </Switch>
     </div>
   );
 }
